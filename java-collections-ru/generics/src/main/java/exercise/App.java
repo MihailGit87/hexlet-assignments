@@ -6,23 +6,19 @@ import java.util.ArrayList;
 
 // BEGIN
 class App {
-    public static <T> List<Map<T, T>> findWhere(List<Map<T, T>> books, Map<T, T> where) {
-        List<Map<T, T>> result = new ArrayList<>();
+    public static <K, V> List<Map<K, V>> findWhere(List<Map<K, V>> books, Map<K, V> where) {
+        List<Map<K, V>> result = new ArrayList<>();
 
-        if (books.isEmpty()) {
-            return result;
-        } else if (where.containsKey("title")) {
-            for (Map<T, T> book : books) {
-                if (book.get("author").equals(where.get("author"))
-                        && book.get("year").equals(where.get("year")) && book.get("title").equals(where.get("title"))) {
-                    result.add(book);
+        for (Map<K, V> book : books) {
+            boolean equals = false;
+            for (Map.Entry<K, V> condition : where.entrySet()) {
+                equals = book.get(condition.getKey()).equals(condition.getValue());
+                if (!equals) {
+                    break;
                 }
             }
-        } else {
-            for (Map<T, T> book : books) {
-                if (book.get("author").equals(where.get("author")) && book.get("year").equals(where.get("year"))) {
-                    result.add(book);
-                }
+            if (equals) {
+                result.add(book);
             }
         }
 
