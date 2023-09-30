@@ -57,6 +57,14 @@ class AppTest {
     }
 
     // BEGIN
-    
+    @Test
+    void testCharSequence() {
+        String str1 = "ABCD";
+        String expected = "DCBA";
+        assertThat(str1.subSequence(0, 2).equals(expected));
+        assertThat(str1.length()).isEqualTo(str1.subSequence(0, 4).length());
+        assertThat(str1.charAt(2)).isEqualTo('C');
+        assertThat(str1.subSequence(1, 3)).isEqualTo("BC");
+    }
     // END
 }
