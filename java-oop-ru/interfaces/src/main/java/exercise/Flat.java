@@ -1,7 +1,7 @@
 package exercise;
 
 // BEGIN
-public class Flat implements Home{
+public class Flat implements Home {
     double area;
     double balconyArea;
     int floor;
@@ -14,9 +14,9 @@ public class Flat implements Home{
 
     @Override
     public String toString() {
-        return "Квартира площадью " + getArea() +
-                " метров на " + floor +
-                " этаже";
+        return "Квартира площадью " + getArea()
+                + " метров на " + floor
+                + " этаже";
     }
 
     @Override

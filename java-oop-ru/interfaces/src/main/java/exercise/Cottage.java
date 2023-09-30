@@ -1,7 +1,7 @@
 package exercise;
 
 // BEGIN
-public class Cottage implements Home{
+public class Cottage implements Home {
     double area;
     int floorCount;
 
@@ -13,7 +13,7 @@ public class Cottage implements Home{
     @Override
     public String toString() {
         return floorCount + " этажный коттедж площадью " +
-                area +" метров";
+                area+ " метров";
     }
 
     @Override
