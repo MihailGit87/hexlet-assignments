@@ -3,9 +3,7 @@ package exercise;
 import lombok.Value;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-// BEGIN
-
-// END
+@Value
 class Car {
     int id;
     String brand;
@@ -14,6 +12,13 @@ class Car {
     User owner;
 
     // BEGIN
-    
+    public String serialize() {
+        return null; //json представление объекта
+    }
+
+    public static Car unserialize(String json) {
+        return null; //принимает json и возвращает объект Car
+    }
+
     // END
 }
