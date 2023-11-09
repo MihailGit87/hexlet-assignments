@@ -1,18 +1,19 @@
 package exercise;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 
 // BEGIN
 public class App {
 
-    public static String save(Path path, Car car) {
-        return null; //сохраняет сериализованный объект в файл
+    public static String save(Path path, Car car) throws IOException {
+        String carSerialize = car.serialize();
+        return String.valueOf(Files.writeString(path, carSerialize));
     }
 
-    public static Car extract(Path path) {
-        return null; //возвращает инстанс класса Car
+    public static Car extract(Path path) throws IOException {
+        String json = Files.readString(path);
+        return Car.unserialize(json);
     }
 }
-// END

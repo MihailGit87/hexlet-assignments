@@ -12,8 +12,6 @@ import java.nio.file.Files;
 import java.util.Map;
 import java.util.HashMap;
 
-
-
 class ValidationTest {
 
     private static ObjectMapper objectMapper;

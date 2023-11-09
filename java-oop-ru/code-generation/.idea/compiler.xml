@@ -11,6 +11,6 @@
         <module name="code-generation.test" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="19" />
+    <bytecodeTargetLevel target="20" />
   </component>
 </project>

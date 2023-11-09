@@ -1,7 +1,7 @@
 package exercise;
 
+import com.google.gson.Gson;
 import lombok.Value;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Value
 class Car {
@@ -11,14 +11,13 @@ class Car {
     String color;
     User owner;
 
-    // BEGIN
     public String serialize() {
-        return null; //json представление объекта
+        Gson gson = new Gson();
+        return gson.toJson(this); //json представление объекта
     }
 
-    public static Car unserialize(String json) {
-        return null; //принимает json и возвращает объект Car
+        public static Car unserialize(String json) {
+        Gson gson = new Gson();
+        return gson.fromJson(json, Car.class);
     }
-
-    // END
 }

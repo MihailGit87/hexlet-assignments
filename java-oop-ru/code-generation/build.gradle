@@ -8,7 +8,8 @@ repositories {
 }
 
 dependencies {
-  compileOnly 'org.projectlombok:lombok:1.18.20'
+  implementation 'com.google.code.gson:gson:2.10.1'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
 	testCompileOnly 'org.projectlombok:lombok:1.18.20'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
@@ -18,7 +19,7 @@ dependencies {
 
   implementation 'com.fasterxml.jackson.core:jackson-core:2.8.8'
   implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.8'
-  implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.8'
+  implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.7.1'
 }
 
 test {
