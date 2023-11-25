@@ -20,12 +20,12 @@ repositories {
 
 dependencies {
     // BEGIN
-    
+    implementation("io.javalin:javalin:5.6.3")
     // END
     implementation("org.slf4j:slf4j-simple:2.0.7")
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    testImplementation("com.konghq:unirest-java:3.13.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    testImplementation("com.konghq:unirest-java:3.14.2")
     testImplementation("org.assertj:assertj-core:3.24.2")
 }
 
