@@ -3,6 +3,7 @@ package exercise;
 import io.javalin.Javalin;
 import io.javalin.http.NotFoundResponse;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,10 +19,23 @@ public final class App {
 
         // BEGIN
         app.get("/companies/{id}", ctx -> {
-            var company = Data.getCompanies(id).
-                    orElseThrow(() -> new NotFoundResponse("Company not found"));
-            ctx.result("Company ID: " + ctx.pathParam("id"));
+            var companyId = ctx.pathParamAsClass("id", String.class).get();
+            var size = COMPANIES.size();
+            Map<String, String> result = new HashMap<>();
+            for (int i = 0; i < size; i++) {
+                for (var company: COMPANIES.get(i).entrySet()) {
+                    if (company.getKey().equals("id") & company.getValue().equals(companyId)) {
+                        result.putAll(COMPANIES.get(i));
+                    }
+                }
+            }
+            if (result.isEmpty()) {
+                throw new NotFoundResponse("Company not found");
+            }
+            ctx.json(result);
         });
+
+
         // END
 
         app.get("/companies", ctx -> {
