@@ -1,6 +1,7 @@
 package exercise;
 
 import io.javalin.Javalin;
+
 import java.util.List;
 import io.javalin.http.NotFoundResponse;
 import exercise.model.User;
@@ -20,7 +21,25 @@ public final class App {
         });
 
         // BEGIN
-        
+        app.get("/users/{id}", ctx -> {
+            Long id = Long.valueOf(ctx.pathParam("id"));
+            User user = USERS.stream()
+                    .filter(u -> u.getId() == id)
+                    .findFirst().orElse(null);
+            if (user == null) {
+                ctx.status(404);
+                ctx.result("User not found");
+                return;
+            }
+            UserPage page = new UserPage(user);
+            ctx.render("users/show.jte", Collections.singletonMap("page", page));
+        });
+
+        app.get("/users", ctx -> {
+            UsersPage page = new UsersPage(USERS);
+            ctx.render("users/index.jte", Collections.singletonMap("page", page));
+        });
+
         // END
 
         app.get("/", ctx -> {
