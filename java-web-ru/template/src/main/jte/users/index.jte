@@ -1,8 +1,6 @@
 @import exercise.dto.users.UsersPage
 @import exercise.model.User
 @param UsersPage page
-n
-
 
 <html lang="en">
 <head>

@@ -7,5 +7,4 @@
     <%--<p>${page.getUser().getLastName()}</p>--%>
     <%--<p>${page.getUser().toString()}</p>--%>
 
-
 </main>
