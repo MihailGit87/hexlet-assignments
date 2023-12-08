@@ -1,6 +1,8 @@
 package exercise;
 
 import io.javalin.Javalin;
+
+import java.util.ArrayList;
 import java.util.List;
 import exercise.model.User;
 import exercise.dto.users.UsersPage;
@@ -19,7 +21,19 @@ public final class App {
         });
 
         // BEGIN
-        
+        app.get("/users", ctx -> {
+            var firstName = ctx.queryParam("term");
+            List<User> filtredUser = null;
+            // Фильтруем, только если была отправлена форма
+            if (firstName != null) {
+                filtredUser = USERS.stream()
+                        .filter(e -> StringUtils.startsWithIgnoreCase(e.getFirstName(), firstName))
+                        .toList();
+            }
+
+            var page = new UsersPage(filtredUser == null ? USERS : filtredUser, firstName);
+            ctx.render("users/index.jte", Collections.singletonMap("page", page));
+        });
         // END
 
         app.get("/", ctx -> {

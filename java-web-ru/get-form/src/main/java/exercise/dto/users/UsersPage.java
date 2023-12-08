@@ -7,5 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 // BEGIN
-
+@AllArgsConstructor
+@Getter
+public class UsersPage {
+    public List<User> users;
+    private String term;
+}
 // END
