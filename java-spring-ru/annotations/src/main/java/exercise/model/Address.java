@@ -3,8 +3,8 @@ package exercise.model;
 import exercise.annotation.Inspect;
 
 public class Address {
-    private String city;
-    private int postalCode;
+    private final String city;
+    private final int postalCode;
 
     public Address(String city, int postalCode) {
         this.city = city;
@@ -12,14 +12,14 @@ public class Address {
     }
 
     // BEGIN
-    
+    @Inspect
     // END
     public String getCity() {
         return city;
     }
 
     // BEGIN
-    
+    @Inspect
     // END
     public int getPostalCode() {
         return postalCode;
